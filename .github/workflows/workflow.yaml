@@ -29,6 +29,9 @@ jobs:
       - name: List directory contents
         run: ls -l
 
+      - name: Check Docker version
+        run: docker --version
+
 
       # 3. Сборка Docker-образа
       - name: Build Docker Image
