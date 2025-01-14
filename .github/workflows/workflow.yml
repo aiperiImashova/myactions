@@ -29,9 +29,9 @@ jobs:
       # 3. Сборка Docker-образа
       - name: Build Docker Image
         run: |
-          docker buildx create --use
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/actions:${{ github.sha }} ../../Dockerfile
-          docker tag ${{ secrets.DOCKER_USERNAME }}/actions:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/actions:latest ../../Dockerfile
+          docker buildx create --use  # Создаём и выбираем контекст сборки
+          docker buildx build -t ${{ secrets.DOCKER_USERNAME }}/actions:${{ github.sha }} .  
+          docker buildx build -t ${{ secrets.DOCKER_USERNAME }}/actions:latest .  
 
       # 4. Публикация Docker-образа в Docker Hub
       - name: Push Docker Image
