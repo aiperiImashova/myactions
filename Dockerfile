@@ -7,7 +7,7 @@ WORKDIR /usr/share/nginx/html
 # Копируем файлы проекта в контейнер
 COPY index.html .
 COPY css/ css/
-COPY images/ images/
+COPY img/ images/
 
 # Указываем, что контейнер использует порт 80 для доступа
 EXPOSE 80
