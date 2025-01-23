@@ -30,3 +30,13 @@ jobs:
         with:
           push: true
           tags: iaiperi04772/actions:latest
+      
+      # 4: Настройка Ansible и запуск Playbook
+      - name: Run Ansible Playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: deploy.yml
+          inventory: |
+            [web_servers]
+            ${{ secrets.SERVER_IP }} ansible_user=${{ secrets.ANSIBLE_USER }}
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
