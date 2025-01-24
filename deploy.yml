@@ -42,3 +42,17 @@
         name: docker
         state: started
         enabled: true
+        
+    - name: Pull the latest Docker image
+      shell: docker pull iaiperi04772/actions:latest
+
+    - name: Stop the existing container if running
+      shell: |
+        if [ $(docker ps -q -f name=my_app_container) ]; then
+          docker stop my_app_container && docker rm my_app_container
+        fi
+      ignore_errors: true
+
+    - name: Run the new Docker container
+      shell: |
+        docker run -d --name my_app_container -p 80:80 iaiperi04772/actions:latest
