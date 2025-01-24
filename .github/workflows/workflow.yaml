@@ -39,4 +39,4 @@ jobs:
           inventory: |
             [web_servers]
             ${{ secrets.SERVER_IP }} ansible_user=${{ secrets.ANSIBLE_USER }}
-          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
