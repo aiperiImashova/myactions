@@ -5,7 +5,7 @@ FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
 # Копируем файлы проекта в контейнер
-COPY index.html .
+COPY index.html . 
 COPY css/ css/
 COPY js/ js/
 COPY libs/ libs/

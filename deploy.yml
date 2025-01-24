@@ -3,12 +3,6 @@
   become: true
 
   tasks:
-    - name: Install aptitude
-      apt:
-        name: aptitude
-        state: latest
-        update_cache: true
-
     - name: Install required system packages
       apt:
         pkg:
@@ -42,7 +36,7 @@
         name: docker
         state: started
         enabled: true
-        
+
     - name: Pull the latest Docker image
       shell: docker pull iaiperi04772/actions:latest
 
